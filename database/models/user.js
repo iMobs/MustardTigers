@@ -35,20 +35,7 @@ const UserModel = db.define('users', {
   }
 });
 
-UserModel.sync();
-
-var User = {model: UserModel};
-
-User.create = function({username, password}) {
-  return UserModel.find({where: {username}})
-    .then(function(user) {
-      if (user) {
-        throw new Error('User already exists');
-      }
-
-      return UserModel.create({username, password});
-    });
-};
+var User = { model: UserModel };
 
 User.validate = function({username, password}) {
   return UserModel.findOne({where: {username}})
