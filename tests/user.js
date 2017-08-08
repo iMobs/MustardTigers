@@ -1,4 +1,4 @@
-const {User} = require('../database');
+const {User} = require('../database/');
 const {expect} = require('chai');
 
 var user = {username: 'fred_zirdung', password: 'fred_zirdung'};
